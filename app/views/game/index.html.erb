@@ -1,0 +1,16 @@
+<h1>HangMan</h1>
+
+<p>
+<% @word.each do  %>
+  		<%= " _ " %>
+ <% end %></p>
+
+
+
+<%= form_tag  game_receive_path do %>
+    <%= label_tag(:letter) %>
+    <input type="text" name="prueba" id="prueba" pattern=".{1,1}" required title="only 1 character">
+    <%= submit_tag("Submit") %>
+ <% end %>
+
+<p><%=  @letters %></p>

@@ -1,0 +1,12 @@
+<h1>HangMan</h1>
+
+<%= form_for @word do |f| %>  
+  <p>
+    <%= f.label "Secret Word" %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
