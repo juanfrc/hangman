@@ -1,29 +1,40 @@
 class GameController < ApplicationController
 	@@letters = []
+	@@answer = []
 	@@word = Word.last.name.split('')
+	@@size = @@word.count
+
+	
+
 
   def index
-  	@@letters = []
+  	@@letters = [] 
+  	@@answer = [] 	
 	@word = @@word  	
+	@answer = @@answer
   end
 
   def receive
-  	@@letter = params[:prueba]
-  	@word = @@word  	
-
+  	@@letter = params[:prueba] 	
   	@@letters.push(@@letter)
   	@letter = @@letter
-  	@letters = @@letters
 
+  	count = 0
+
+  	@@word.each do |x|
+  		if x == @letter
+  			@@answer[count] = @@letter
+			count += 1  			
+		else
+			count += 1
+  		end
+  	end
+
+	@word = @@word 
+	@letter = @@letter
+	@letters = @@letters
+	@answer = @@answer
   	render 'index'
-
-
-
-  	#@@letter.chars.each_with_index do |character, index|
-  	#	if @@letter = character
-  	#		@@letters.push(params[:prueba]) 
-  	#	end
-  	#end
   end
 
 
